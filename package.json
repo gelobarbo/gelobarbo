@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "@whiskeysockets/baileys": "6.7.7",
-    "@whiskeysockets/libsignal-node": "^2.0.1",
     "pino": "8.17.2"
   },
   "engines": {
