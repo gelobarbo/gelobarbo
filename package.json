@@ -2,11 +2,16 @@
   "name": "bot-whatsapp",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "@whiskeysockets/baileys": "^6.7.7",
-    "pino": "^8.17.2"
+    "@whiskeysockets/baileys": "6.7.7",
+    "@whiskeysockets/libsignal-node": "^2.0.1",
+    "pino": "8.17.2"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
