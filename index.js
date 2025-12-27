@@ -1,8 +1,9 @@
 const {
   default: makeWASocket,
-  useSingleFileAuthState,
+  useMultiFileAuthState,
   downloadMediaMessage
 } = require('@whiskeysockets/baileys')
+
 
 const P = require('pino')
 const fs = require('fs')
@@ -18,7 +19,7 @@ const delay = ms => new Promise(r => setTimeout(r, ms))
 const rand = n => Math.floor(Math.random() * n)
 
 async function startBot() {
-  const { state, saveState } = useSingleFileAuthState('./auth.json')
+  const { state, saveCreds } = await useMultiFileAuthState('./auth')
 
   const sock = makeWASocket({
     logger: P({ level: 'silent' }),
@@ -26,7 +27,7 @@ async function startBot() {
     printQRInTerminal: true
   })
 
-  sock.ev.on('creds.update', saveState)
+  sock.ev.on('creds.update', saveCreds)
 
   sock.ev.on('messages.upsert', async ({ messages }) => {
     const msg = messages[0]
