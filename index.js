@@ -1,7 +1,8 @@
 const {
   default: makeWASocket,
   useMultiFileAuthState,
-  downloadMediaMessage
+  downloadMediaMessage,
+  DisconnectReason
 } = require('@whiskeysockets/baileys')
 
 
